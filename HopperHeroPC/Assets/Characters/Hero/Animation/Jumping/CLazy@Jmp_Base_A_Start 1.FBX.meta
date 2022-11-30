@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 71a4dd5632c200f4a83c67d9154fc031
+guid: 4c1a6fa30c4102743836845349e3123a
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
@@ -437,7 +437,7 @@ ModelImporter:
     second: CLazyRunner
   - first:
       74: 7400000
-    second: Jmp_Base_A
+    second: Jmp_Base_A_Start
   - first:
       95: 9500000
     second: //RootNode
@@ -462,10 +462,10 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Bone length in
       copied configuration does not match position in animation file:\n\t'thigh_l'
-      : position error = 26.334055 mm\n\t'calf_l' : position error = 9.011013 mm\n\t'foot_l'
-      : position error = 8.592263 mm\n\t'ball_l' : position error = 2.209841 mm\n\t'thigh_r'
-      : position error = 11.319603 mm\n\t'calf_r' : position error = 10.231203 mm\n\t'foot_r'
-      : position error = 11.969085 mm\n\t'ball_r' : position error = 8.305943 mm\n"
+      : position error = 1.404204 mm\n\t'calf_l' : position error = 24.994095 mm\n\t'foot_l'
+      : position error = 8.153849 mm\n\t'ball_l' : position error = 4.005750 mm\n\t'thigh_r'
+      : position error = 1.402044 mm\n\t'calf_r' : position error = 13.083212 mm\n\t'foot_r'
+      : position error = 9.093002 mm\n\t'ball_r' : position error = 2.288688 mm\n"
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
       might lower retargeting quality:\nNote: Activate translation DOF on avatar
@@ -523,19 +523,19 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Jmp_Base_A
+      name: Jmp_Base_A_Start
       takeName: Take 001
       internalID: 0
       firstFrame: 0
-      lastFrame: 46
+      lastFrame: 4
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
+      loopTime: 1
+      loopBlend: 1
       loopBlendOrientation: 1
       loopBlendPositionY: 1
       loopBlendPositionXZ: 1
