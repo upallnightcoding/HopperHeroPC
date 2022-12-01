@@ -6,14 +6,14 @@ using UnityEngine;
 public class HeroCharCntrl : MonoBehaviour
 {
     [SerializeField] private float runSpeed;
-    [SerializeField] private float justHeight;
+    [SerializeField] private float jumpHeight;
 
     private CharacterController controller;
     private Animator animator;
 
     private HeroCharCntrlState heroState = HeroCharCntrlState.IDLE;
 
-    private float gravity = 0.0f;
+    private float heroHeight = 0.0f;
 
     private Vector3 moveVector;
 
@@ -41,12 +41,21 @@ public class HeroCharCntrl : MonoBehaviour
             case HeroCharCntrlState.RUN:
                 HeroRun(horiInput, vertInput, startStopToggle, jumpRequest);
                 break;
+            case HeroCharCntrlState.JUMP_START:
+                StartFalling();
+                break;
+            case HeroCharCntrlState.FALLING:
+                HeroFalling(horiInput);
+                break;
+            case HeroCharCntrlState.JUMP_END:
+                EndJump(horiInput);
+                break;
         }
     }
 
     private void AdjustForGravity()
     {
-        gravity += Physics.gravity.y;
+        heroHeight += Physics.gravity.y * Time.deltaTime;
     }
 
     private void HeroIdle(bool startStopToggle) {
@@ -67,16 +76,32 @@ public class HeroCharCntrl : MonoBehaviour
         }
     }
 
+    private void HeroFalling(float horiInput) {
+        MoveHeroForward(horiInput);
+
+        if (heroHeight < 0.0f) {
+            heroHeight = 0.0f;
+            ChangeHeroState(HeroCharCntrlState.JUMP_END);    
+        }
+    }
+
+    private void EndJump(float horiInput) {
+        MoveHeroForward(horiInput);
+        ChangeHeroState(HeroCharCntrlState.RUN);    
+    }
+
     private void StartJumpAnimation() {
         ChangeHeroState(HeroCharCntrlState.JUMP_START);
-        gravity = justHeight;
+        heroHeight = jumpHeight;
+    }
+
+    private void StartFalling() {
+        ChangeHeroState(HeroCharCntrlState.FALLING);
     }
 
     private void MoveHeroForward(float horiInput) {
-        //Vector3 moveVector = new Vector3(horiInput, 0.0f, 1.0f) * runSpeed;
-
         moveVector.x = horiInput;
-        moveVector.y = 0.0f;
+        moveVector.y = heroHeight;
         moveVector.z = 1.0f;
 
         controller.Move(moveVector * runSpeed * Time.deltaTime);
