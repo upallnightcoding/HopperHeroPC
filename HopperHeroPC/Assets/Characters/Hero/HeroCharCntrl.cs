@@ -7,6 +7,7 @@ public class HeroCharCntrl : MonoBehaviour
 {
     [SerializeField] private float runSpeed;
     [SerializeField] private float jumpHeight;
+    [SerializeField] private float flySpeed;
 
     private CharacterController controller;
     private Animator animator;
@@ -58,26 +59,29 @@ public class HeroCharCntrl : MonoBehaviour
         heroHeight += Physics.gravity.y * Time.deltaTime;
     }
 
-    private void HeroIdle(bool startStopToggle) {
+    private void HeroIdle(bool startStopToggle) 
+    {
         if (startStopToggle) {
             ChangeHeroState(HeroCharCntrlState.RUN);
         } 
     }
 
-    private void HeroRun(float horiInput, float vertInput, bool startStopToggle, bool jumpRequest) {
+    private void HeroRun(float horiInput, float vertInput, bool startStopToggle, bool jumpRequest) 
+    {
         if (startStopToggle) {
             ChangeHeroState(HeroCharCntrlState.IDLE);
         } else {
             if (jumpRequest) {
                 StartJumpAnimation();
             } else {
-                MoveHeroForward(horiInput);
+                MoveHeroForward(horiInput, runSpeed);
             }
         }
     }
 
-    private void HeroFalling(float horiInput) {
-        MoveHeroForward(horiInput);
+    private void HeroFalling(float horiInput) 
+    {
+        MoveHeroForward(horiInput, flySpeed);
 
         if (heroHeight < 0.0f) {
             heroHeight = 0.0f;
@@ -85,35 +89,41 @@ public class HeroCharCntrl : MonoBehaviour
         }
     }
 
-    private void EndJump(float horiInput) {
-        MoveHeroForward(horiInput);
+    private void EndJump(float horiInput) 
+    {
+        MoveHeroForward(horiInput, runSpeed);
         ChangeHeroState(HeroCharCntrlState.RUN);    
     }
 
-    private void StartJumpAnimation() {
+    private void StartJumpAnimation() 
+    {
         ChangeHeroState(HeroCharCntrlState.JUMP_START);
         heroHeight = jumpHeight;
     }
 
-    private void StartFalling() {
+    private void StartFalling() 
+    {
         ChangeHeroState(HeroCharCntrlState.FALLING);
     }
 
-    private void MoveHeroForward(float horiInput) {
+    private void MoveHeroForward(float horiInput, float speed) 
+    {
         moveVector.x = horiInput;
         moveVector.y = heroHeight;
-        moveVector.z = 1.0f;
+        moveVector.z = speed;
 
-        controller.Move(moveVector * runSpeed * Time.deltaTime);
+        controller.Move(moveVector * Time.deltaTime);
     }
 
-    private void ChangeHeroState(HeroCharCntrlState newState) {
+    private void ChangeHeroState(HeroCharCntrlState newState) 
+    {
         heroState = newState;
         animator.SetInteger("state", (int) newState);
     }
 }
 
-public enum HeroCharCntrlState {
+public enum HeroCharCntrlState 
+{
     IDLE = 0,
     RUN = 1,
     JUMP_START = 2,
