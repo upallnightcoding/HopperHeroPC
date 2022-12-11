@@ -8469,7 +8469,7 @@ GameObject:
   - component: {fileID: 222477181706635916}
   m_Layer: 0
   m_Name: SkeletonPreFab
-  m_TagString: Untagged
+  m_TagString: Villian
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8501,7 +8501,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2978bf3aaabc13428574defabc6adeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 222477181706635916}
 --- !u!143 &222477181706635916
 CharacterController:
   m_ObjectHideFlags: 0

@@ -31,6 +31,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8548228961762164233
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8969641291585615430}
+  m_Layer: 0
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8969641291585615430
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8548228961762164233}
+  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: 0, y: 1.061, z: 0.775}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3745149178163238038}
+  m_RootOrder: 61
+  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
 --- !u!1001 &3740633858169118482
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -86,14 +116,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 95949351757707422, guid: f9527c2757f240d4092108c99f07e436, type: 3}
-      propertyPath: m_Enabled
-      value: 1
+    - target: {fileID: 6678433500810484183, guid: f9527c2757f240d4092108c99f07e436, type: 3}
+      propertyPath: blast
+      value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 95949351757707422, guid: f9527c2757f240d4092108c99f07e436, type: 3}
-      propertyPath: m_Controller
+    - target: {fileID: 6678433500810484183, guid: f9527c2757f240d4092108c99f07e436, type: 3}
+      propertyPath: disLimit
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6678433500810484183, guid: f9527c2757f240d4092108c99f07e436, type: 3}
+      propertyPath: firePoint
       value: 
-      objectReference: {fileID: 9100000, guid: a082537ba64faab44ae589602c6cc205, type: 2}
+      objectReference: {fileID: 8969641291585615430}
+    - target: {fileID: 6678433500810484183, guid: f9527c2757f240d4092108c99f07e436, type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 2474953383596966845, guid: 044f5bbbfbb477c4f80b923d8e3384e2, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9527c2757f240d4092108c99f07e436, type: 3}
 --- !u!4 &3745149178163238038 stripped

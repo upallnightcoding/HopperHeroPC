@@ -5,6 +5,10 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Game Data")]
 public class GameData : ScriptableObject
 {
-    [Header("Hero Attributes")]
-    public float heroMovementSpeed;
+    [Header("Points System")]
+    public int totalPoints;
+
+    public void initialize() {
+        totalPoints = 0;
+    }
 }

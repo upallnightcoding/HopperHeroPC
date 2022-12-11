@@ -4,22 +4,23 @@ using UnityEngine;
 
 public class SkeletonCntrl : MonoBehaviour
 {
-    [SerializeField] private CharacterController controller;
+    private CharacterController controller;
 
     private int nWayPoints = 7;
     private Vector3[] wayPointsWC = null;
-    private float speed = 5;
+    private float skeletonSpeed = 1.0f;
     private int traversePoint = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        //controller = GetComponent<CharacterController>();
+        controller = GetComponent<CharacterController>();
 
         InitializePathPoints();
     }
 
-    void Update() {
+    void Update() 
+    {
         MoveSkeleton();
     }
 
@@ -32,10 +33,11 @@ public class SkeletonCntrl : MonoBehaviour
 
         Vector3 direction = (wayPointsWC[traversePoint] - gameObject.transform.position).normalized;
 
-        controller.Move(direction * 1.0f * Time.deltaTime);
+        controller.Move(direction * skeletonSpeed * Time.deltaTime);
     }
 
-    private void InitializePathPoints() {
+    private void InitializePathPoints() 
+    {
         wayPointsWC = new Vector3[nWayPoints];
 
         for (int wayPoint = 0; wayPoint < nWayPoints; wayPoint++) {
@@ -46,7 +48,8 @@ public class SkeletonCntrl : MonoBehaviour
         gameObject.transform.position = wayPointsWC[nWayPoints - 1];
     }
 
-    private void OnDrawGizmos() {
+    private void OnDrawGizmos() 
+    {
         Gizmos.color = Color.red;
         for (int pathPoint = 0; pathPoint < nWayPoints; pathPoint++) 
         {
