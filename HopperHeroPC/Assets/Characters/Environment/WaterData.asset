@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69947da66e2e8df44b8dba1eba1df4fd, type: 3}
+  m_Name: WaterData
+  m_EditorClassIdentifier: 
+  platform: {fileID: 520608202235267424, guid: 0cb73aa15cbca4440a73694475a67228, type: 3}
+  nVillians: 0
+  villian: {fileID: 0}

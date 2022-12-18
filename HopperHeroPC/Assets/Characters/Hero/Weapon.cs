@@ -27,9 +27,10 @@ public class Weapon : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, disLimit)) 
             {
-                //GameObject go = Instantiate(projectile, firePoint.position, firePoint.rotation);
-                //Vector3 direction = (hit.point - firePoint.position).normalized;
-                //go.GetComponent<Rigidbody>().velocity = direction * blast;
+                GameObject go = Instantiate(projectile, firePoint.position, firePoint.rotation);
+                Vector3 direction = (hit.point - firePoint.position).normalized;
+                go.GetComponent<Rigidbody>().velocity = direction * blast;
+                go.GetComponent<Rigidbody>().useGravity = false;
 
                 // GameObject go = Instantiate(projectile, firePoint.position, firePoint.rotation);
                 // Vector3 direction = (hit.point - firePoint.position).normalized;
@@ -37,11 +38,11 @@ public class Weapon : MonoBehaviour
                 // go.GetComponent<Rigidbody>().useGravity = true;
                 // go.GetComponent<Rigidbody>().velocity = direction * blast;
 
-                GameObject go = Instantiate(projectile, firePoint.position, firePoint.rotation);
-                Vector3 direction = (hit.point - firePoint.position).normalized;
-                Vector3 cast = (direction + Vector3.up).normalized;
-                go.GetComponent<Rigidbody>().useGravity = true;
-                go.GetComponent<Rigidbody>().velocity = cast * blast;
+                // GameObject go = Instantiate(projectile, firePoint.position, firePoint.rotation);
+                // Vector3 direction = (hit.point - firePoint.position).normalized;
+                // Vector3 cast = (direction + Vector3.up).normalized;
+                // go.GetComponent<Rigidbody>().useGravity = true;
+                // go.GetComponent<Rigidbody>().velocity = cast * blast;
             }
         }
     }

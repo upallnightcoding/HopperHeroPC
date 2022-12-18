@@ -26,7 +26,7 @@ GameObject:
   m_Layer: 0
   m_Name: BridgePreFab
   m_TagString: Untagged
-  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -41,7 +41,7 @@ Transform:
   m_LocalPosition: {x: 0, y: -0.25, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1581493607008444027}
+  - {fileID: 2718591850049337206}
   - {fileID: 8076700584030841202}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -53,6 +53,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8072464072229511270}
     m_Modifications:
+    - target: {fileID: 1938855658927291129, guid: 02760864705df604593b27f1d43fdfa0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1938855658927291129, guid: 02760864705df604593b27f1d43fdfa0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3071677181267645428, guid: 02760864705df604593b27f1d43fdfa0, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -103,9 +111,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02760864705df604593b27f1d43fdfa0, type: 3}
---- !u!4 &1581493607008444027 stripped
+--- !u!4 &2718591850049337206 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 3071677181267645428, guid: 02760864705df604593b27f1d43fdfa0, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1938855658927291129, guid: 02760864705df604593b27f1d43fdfa0, type: 3}
   m_PrefabInstance: {fileID: 4562799606562000271}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8072464071151898810

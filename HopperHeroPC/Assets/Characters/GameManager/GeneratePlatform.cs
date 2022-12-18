@@ -10,12 +10,18 @@ public class GeneratePlatform : MonoBehaviour
     [SerializeField] private int nLookForeward;
     [SerializeField] private float nLookBackward;
 
-    [Header("PreFab Objects")]
-    [SerializeField] private GameObject platformPreFab;
+    [Header("Platform PreFab Objects")]
+    [SerializeField] private PlatformSO platformData;
+    [SerializeField] private PlatformSO platformPathData;
+    [SerializeField] private PlatformSO bridgeData;
+    [SerializeField] private PlatformSO waterData;
+
     [SerializeField] private GameObject skeletonPreFab;
     [SerializeField] private GameObject coinPreFab;
 
     [SerializeField] private GameObject[] cloudsPreFab;
+
+    private PlatformType currentPlatform = PlatformType.PLATFORM;
 
     private float lastPlatformPos = 0.0f;
     private float lookForewardDis = 0.0f;
@@ -70,13 +76,73 @@ public class GeneratePlatform : MonoBehaviour
 
     private void CreatePlateform(Vector3 position) 
     {
-        GameObject platform = Instantiate(platformPreFab, position, Quaternion.identity);
+        currentPlatform = GetNextPlatform(currentPlatform);
+
+        PlatformSO platformData = GetPlatform(currentPlatform);
+
+        GameObject platform = Instantiate(platformData.platform, position, Quaternion.identity);
         deleteQueue.Enqueue(platform);
+        
+        //for (int i = 0; i < platformData.nVillians; i++) {
+          //  GameObject skeleton = Instantiate(skeletonPreFab, platform.transform, false);
+       // }
 
-        GameObject skeleton = Instantiate(skeletonPreFab, platform.transform, false);
-        //skeleton.transform.localPosition = new Vector3(0.0f, 0.0f, 0.0f);
-
-        GameObject coin = Instantiate(coinPreFab, platform.transform, false);
-        coin.transform.localPosition = new Vector3(0.0f, 1.0f, 0.0f);
+        //GameObject coin = Instantiate(coinPreFab, platform.transform, false);
+        //coin.transform.localPosition = new Vector3(0.0f, 1.0f, 0.0f);
     }
+
+    private PlatformSO GetPlatform(PlatformType type) {
+        PlatformSO platform = null;
+
+        switch(type) {
+            case PlatformType.PLATFORM:
+                platform = platformData;
+                break;
+            case PlatformType.BRIDGE:
+                platform = bridgeData;
+                break;
+            case PlatformType.WATER:
+                platform = waterData;
+                break;
+            case PlatformType.PATH:
+                platform = platformPathData;
+                break;
+        }
+
+        return(platform);
+    }
+
+    private PlatformType GetNextPlatform(PlatformType type) {
+        PlatformType choice = PlatformType.UNKNOWN;
+
+        switch(type) {
+            case PlatformType.PLATFORM:
+                choice = Choose(PlatformType.BRIDGE, PlatformType.PATH, PlatformType.WATER);
+                break;
+            case PlatformType.BRIDGE:
+                choice = PlatformType.PATH;
+                break;
+            case PlatformType.WATER:
+                choice = Choose(PlatformType.WATER, PlatformType.PATH, PlatformType.PATH);
+                break;
+            case PlatformType.PATH:
+                choice = Choose(PlatformType.BRIDGE, PlatformType.WATER, PlatformType.PATH, PlatformType.PLATFORM);
+                break;
+        }
+
+        return(choice);
+    }
+
+    private PlatformType Choose(params PlatformType[] types) {
+        return(types[Random.Range(0, types.Length)]);
+    }
+}
+
+public enum PlatformType 
+{
+    UNKNOWN,
+    PLATFORM,
+    BRIDGE,
+    WATER,
+    PATH
 }
