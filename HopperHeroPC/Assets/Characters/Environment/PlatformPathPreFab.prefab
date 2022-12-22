@@ -60,6 +60,25 @@ MonoBehaviour:
   - {fileID: 3546881621532533997, guid: 56df014ae928faa4c89607d45b5b7bf1, type: 3}
   - {fileID: 8618526663188709360, guid: 128bbce24246821439b517b7be7e4a5f, type: 3}
   - {fileID: 6575697095861494561, guid: 8159c588cc756b44e863442f09a65aae, type: 3}
+  props:
+  - {fileID: 3857471251241847670, guid: cf15f30cfec78494ab691d0c0e72f1b3, type: 3}
+  - {fileID: 4259585310574207998, guid: be328f6fc1020f04fb177ec5d8f26607, type: 3}
+  - {fileID: 6282716219306726966, guid: 7cb61a407053ee541b3fa95e918e93ad, type: 3}
+  - {fileID: 1380116457503501753, guid: 1899b0c6d7ceeb14684a76b53babd33b, type: 3}
+  - {fileID: 960871126025232739, guid: 1727bb65fbd34e1429fc6824345bd254, type: 3}
+  - {fileID: 6309348274568693108, guid: d46de3001b11b2f4a884773a55fea8bc, type: 3}
+  - {fileID: 3478830704457491649, guid: c55c75d0a7f58d2459e7b3d38df4c4ce, type: 3}
+  - {fileID: 2660290476000040451, guid: 4f3f18bf42ec60f4eab30635b11638bd, type: 3}
+  buildings:
+  - {fileID: 6218404744882257502, guid: 74e0e743914bdd441b433fe67dec69ea, type: 3}
+  - {fileID: 6808192777806057087, guid: a1fa3338d43113d4380c87fa17340e8f, type: 3}
+  - {fileID: 9046109370932922608, guid: b41e401ce609ac944a17f2d68ae6005b, type: 3}
+  grass:
+  - {fileID: 6575697095861494561, guid: 8159c588cc756b44e863442f09a65aae, type: 3}
+  coinGold: {fileID: 8726881779176697675, guid: 20873dec071e0c445a62e6cce6f7bf6d, type: 3}
+  numberPatches: 5
+  sizeOfPatches: 10
+  nGrass: 50
 --- !u!65 &1650858730663402001
 BoxCollider:
   m_ObjectHideFlags: 0

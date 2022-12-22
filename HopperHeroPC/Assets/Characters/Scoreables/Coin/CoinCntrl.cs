@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CoinCntrl : MonoBehaviour
 {
-    [SerializeField] private AnimationCurve animationCurve;
     [SerializeField] private float degressPerSec;
 
     private Vector3 rotateAmount;
