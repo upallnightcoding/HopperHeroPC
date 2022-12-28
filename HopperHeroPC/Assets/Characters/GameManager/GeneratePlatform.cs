@@ -15,13 +15,14 @@ public class GeneratePlatform : MonoBehaviour
     [SerializeField] private PlatformSO platformPathData;
     [SerializeField] private PlatformSO bridgeData;
     [SerializeField] private PlatformSO waterData;
+    [SerializeField] private PlatformSO startPlatformData;
 
     [SerializeField] private GameObject skeletonPreFab;
     [SerializeField] private GameObject coinPreFab;
 
     [SerializeField] private GameObject[] cloudsPreFab;
 
-    private PlatformType currentPlatform = PlatformType.PLATFORM;
+    private PlatformType currentPlatform = PlatformType.START;
 
     private float lastPlatformPos = 0.0f;
     private float lookForewardDis = 0.0f;
@@ -76,12 +77,12 @@ public class GeneratePlatform : MonoBehaviour
 
     private void CreatePlateform(Vector3 position) 
     {
-        currentPlatform = GetNextPlatform(currentPlatform);
-
         PlatformSO platformData = GetPlatform(currentPlatform);
 
         GameObject platform = Instantiate(platformData.platform, position, Quaternion.identity);
         deleteQueue.Enqueue(platform);
+
+        currentPlatform = GetNextPlatform(currentPlatform);
         
         //for (int i = 0; i < platformData.nVillians; i++) {
           //  GameObject skeleton = Instantiate(skeletonPreFab, platform.transform, false);
@@ -107,6 +108,9 @@ public class GeneratePlatform : MonoBehaviour
             case PlatformType.PATH:
                 platform = platformPathData;
                 break;
+            case PlatformType.START:
+                platform = startPlatformData;
+                break;
         }
 
         return(platform);
@@ -128,6 +132,9 @@ public class GeneratePlatform : MonoBehaviour
             case PlatformType.PATH:
                 choice = Choose(PlatformType.BRIDGE, PlatformType.WATER, PlatformType.PATH, PlatformType.PLATFORM);
                 break;
+            case PlatformType.START:
+                choice = PlatformType.PLATFORM;
+                break;
         }
 
         return(choice);
@@ -141,6 +148,7 @@ public class GeneratePlatform : MonoBehaviour
 public enum PlatformType 
 {
     UNKNOWN,
+    START,
     PLATFORM,
     BRIDGE,
     WATER,

@@ -118,7 +118,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6678433500810484183, guid: f9527c2757f240d4092108c99f07e436, type: 3}
       propertyPath: blast
-      value: 10
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6678433500810484183, guid: f9527c2757f240d4092108c99f07e436, type: 3}
       propertyPath: disLimit
@@ -131,7 +131,7 @@ PrefabInstance:
     - target: {fileID: 6678433500810484183, guid: f9527c2757f240d4092108c99f07e436, type: 3}
       propertyPath: projectile
       value: 
-      objectReference: {fileID: 2474953383596966845, guid: 044f5bbbfbb477c4f80b923d8e3384e2, type: 3}
+      objectReference: {fileID: 5593227287185935757, guid: 586b38e368eae034ca5b838ecf82902c, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9527c2757f240d4092108c99f07e436, type: 3}
 --- !u!4 &3745149178163238038 stripped

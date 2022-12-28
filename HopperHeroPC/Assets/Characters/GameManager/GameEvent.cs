@@ -5,15 +5,31 @@ using System;
 
 public class GameEvent : MonoBehaviour
 {
-    public static event Action<GameEventType> OnScoreableEvent;
+    public static event Action<GameEventCmd> OnScoreableEvent;
 
-    public static void RaiseOnScoreableEvent(GameEventType gameEventType) 
+    public static void RaiseOnScoreableEvent(GameEventCmd command) 
     {
-        OnScoreableEvent?.Invoke(gameEventType);
+        OnScoreableEvent?.Invoke(command);
+    }
+}
+
+public class GameEventCmd
+{
+    public GameEventType AType { get; set;}
+    public GameObject AGameObject { get; set; }
+
+    public GameEventCmd(GameEventType type, GameObject gameObject) {
+        this.AType = type;
+        this.AGameObject = gameObject;
     }
 }
 
 public enum GameEventType 
 {
-    COIN_GOLD
+    DESTROY_SKELETON,
+    COLLECT_GOLD_COIN,
+
+    COIN_RED,
+    COIN_WHITE,
+    COIN_BLUE
 }
